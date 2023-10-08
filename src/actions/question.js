@@ -6,7 +6,7 @@ export const askQuestion = (questionData, navigate) => async (dispatch) => {
     // console.log(data);
     dispatch({type: "POST_QUESTION", payload: data});
     dispatch(fetchAllQuestions());
-    navigate("/");
+    navigate("/Questions");
   } catch (error) {
     console.log(error);
   }
