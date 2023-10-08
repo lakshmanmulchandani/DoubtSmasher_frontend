@@ -3,14 +3,15 @@ import {useDispatch} from "react-redux";
 import {useNavigate} from "react-router-dom";
 
 import "./Auth.css";
-// import icon from "../../assets/icon.png";
-// import AboutAuth from "./AboutAuth";
 import {signup, login} from "../../actions/auth";
+
 const Auth = () => {
   const [isSignup, setIsSignup] = useState(false);
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const [rollno, setRollNo] = useState(""); // Updated to "rollno"
+  const [passoutyear, setPassoutYear] = useState(""); // Updated to "passoutyear"
 
   const dispatch = useDispatch();
   const navigate = useNavigate();
@@ -19,27 +20,38 @@ const Auth = () => {
     setIsSignup(!isSignup);
   };
 
-  //  Calling actions for signup and email along with data of user
   const handleSubmit = (e) => {
     e.preventDefault();
-    if (!email && !password) {
+    if (!email || !password) {
       alert("Enter email and password");
+      return; // Return early to prevent further execution
     }
+    if (isSignup && (!name || !rollno || !passoutyear)) {
+      alert("Please fill in all required fields");
+      return; // Return early to prevent further execution
+    }
+
     if (isSignup) {
-      if (!name) {
-        alert("Enter a name to continue");
-      }
-      dispatch(signup({name, email, password}, navigate));
+      dispatch(
+        signup(
+          {
+            name,
+            email,
+            password,
+            rollno, // Updated to "rollno"
+            passoutyear, // Updated to "passoutyear"
+          },
+          navigate
+        )
+      );
     } else {
       dispatch(login({email, password}, navigate));
     }
   };
 
   return (
-    <section class='auth-section'>
-      {isSignup}
-      <div class='auth-container-2'>
-        {!isSignup && <img alt='stack overflow' className='login-logo' />}
+    <section className='auth-section'>
+      <div className='auth-container-2'>
         <form onSubmit={handleSubmit}>
           {isSignup && (
             <label htmlFor='name'>
@@ -66,7 +78,11 @@ const Auth = () => {
             />
           </label>
           <label htmlFor='password'>
-            <div style={{display: "flex", justifyContent: "space-between"}}>
+            <div
+              style={{
+                display: "flex",
+                justifyContent: "space-between",
+              }}>
               <h4>Password</h4>
               {!isSignup && (
                 <p style={{color: "#007ac6", fontSize: "13px"}}>
@@ -86,37 +102,44 @@ const Auth = () => {
               <p style={{color: "#666767", fontSize: "13px"}}>
                 Passwords must contain at least eight
                 <br />
-                characters, including at least 1 letter and 1<br /> number.
+                characters, including at least 1 letter and 1 <br /> number.
               </p>
             )}
           </label>
           {isSignup && (
-            <label htmlFor='check'>
-              <input type='checkbox' id='check' />
-              <p style={{fontSize: "13px"}}>
-                Opt-in to receive occasional,
-                <br />
-                product updates, user research invitations,
-                <br />
-                company announcements, and digests.
-              </p>
+            <label htmlFor='rollno'>
+              {" "}
+              {/* Updated to "rollno" */}
+              <h4>Roll Number</h4>
+              <input
+                type='text'
+                id='rollno'
+                name='rollno'
+                onChange={(e) => {
+                  setRollNo(e.target.value); // Updated to "setRollNo"
+                }}
+              />
             </label>
           )}
+          {isSignup && (
+            <label htmlFor='passoutyear'>
+              {" "}
+              {/* Updated to "passoutyear" */}
+              <h4>Passout Year</h4>
+              <input
+                type='text'
+                id='passoutyear'
+                name='passoutyear'
+                onChange={(e) => {
+                  setPassoutYear(e.target.value); // Updated to "setPassoutYear"
+                }}
+              />
+            </label>
+          )}
+          {/* Other form fields */}
           <button type='submit' className='auth-btn'>
             {isSignup ? "Sign up" : "Log in"}
           </button>
-          {isSignup && (
-            <p style={{color: "#666767", fontSize: "13px"}}>
-              By clicking “Sign up”, you agree to our
-              <span style={{color: "#007ac6"}}>
-                {" "}
-                terms of
-                <br /> service
-              </span>
-              ,<span style={{color: "#007ac6"}}> privacy policy</span> and
-              <span style={{color: "#007ac6"}}> cookie policy</span>
-            </p>
-          )}
         </form>
         <p>
           {isSignup ? "Already have an account?" : "Don't have an account?"}
@@ -124,7 +147,7 @@ const Auth = () => {
             type='button'
             className='handle-switch-btn'
             onClick={handleSwitch}>
-            {isSignup ? "Log in" : "sign up"}
+            {isSignup ? "Log in" : "Sign up"}
           </button>
         </p>
       </div>
