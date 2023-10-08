@@ -1,4 +1,8 @@
 
+import Questions from "./Pages/Questions/Questions";
+import AskQuestion from "./Pages/AskQuestion/AskQuestion";
+import DisplayQuestion from "./Pages/Questions/DisplayQuestion";
+
 import React, { useState } from "react";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import ProfileForm from "./Pages/Connect/interest";
@@ -19,6 +23,12 @@ const AllRoutes = () => {
 
   return (
     <Routes>
+
+      <Route path='/Auth' element={<Auth />} />
+      <Route path='/AskQuestion' element={<AskQuestion />} />
+      <Route path='/Questions' element={<Questions />} />
+      <Route path='/Questions/:id' element={<DisplayQuestion />} />
+
       <Route exact path="/chatroom/expand" element = {<Chatroom />} />
       <Route exact path="/chatroom/create" element = {<CreateChatroom />} />
       <Route exact path="/chatroom/join" element = {<JoinChatroom />} />
@@ -33,6 +43,7 @@ const AllRoutes = () => {
         path="/connect"
         render={() => <ConnectPage userProfiles={userProfiles} />}
       />
+
     </Routes>
   );
 };
