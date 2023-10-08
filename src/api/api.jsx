@@ -1,11 +1,12 @@
 import axios from "axios";
 
 const API = axios.create({
-  baseURL: "http://localhost:5000",
+  baseURL: "http://localhost:5000"
 });
 
 export const logIn = (authData) => API.post("/user/login", authData);
 export const signUp = (authData) => API.post("/user/signup", authData);
+
 
 // feed
 export const postQuestion = (questionData) =>
@@ -19,3 +20,8 @@ export const postAnswer = (id, noOfAnswers, answerBody, userAnswered) =>
   API.patch(`/answer/post/${id}`, {noOfAnswers, answerBody, userAnswered});
 export const deleteAnswer = (id, answerId, noOfAnswers) =>
   API.patch(`/answer/delete/${id}`, {answerId, noOfAnswers});
+
+export const check = () => API.get("/");
+
+
+

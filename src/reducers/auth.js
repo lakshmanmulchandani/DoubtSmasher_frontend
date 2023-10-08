@@ -14,3 +14,4 @@ const authReducer = (state = {data: null}, action) => {
 };
 
 export default authReducer;
+
