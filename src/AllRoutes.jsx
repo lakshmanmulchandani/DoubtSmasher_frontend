@@ -4,7 +4,7 @@ import AskQuestion from "./Pages/AskQuestion/AskQuestion";
 import DisplayQuestion from "./Pages/Questions/DisplayQuestion";
 
 import React, { useState } from "react";
-import { BrowserRouter, Routes, Route } from "react-router-dom";
+import { Routes, Route } from "react-router-dom";
 import ProfileForm from "./Pages/Connect/interest";
 import ConnectPage from "./Pages/Connect/connect";
 import Auth from "./Pages/Auth/Auth";
@@ -37,11 +37,11 @@ const AllRoutes = () => {
       <Route
         exact
         path="/interest"
-        render={() => <ProfileForm onSubmit={handleProfileSubmit} />}
+        element={<ProfileForm onSubmit={handleProfileSubmit} />}
       />
       <Route
         path="/connect"
-        render={() => <ConnectPage userProfiles={userProfiles} />}
+        element={<ConnectPage userProfiles={userProfiles} />}
       />
 
     </Routes>
