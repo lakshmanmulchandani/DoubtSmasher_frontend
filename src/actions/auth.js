@@ -12,7 +12,6 @@ export const signup = (authData, navigate) => async (dispatch, getState) => {
     // Getting profile from the local storage and setting it as current user also navigating to home page
     dispatch(setCurrentUser(JSON.parse(localStorage.getItem("Profile"))));
     dispatch(fetchAllQuestions());
-    navigate("/Questions");
   } catch (error) {
     console.log(error);
   }
