@@ -2,6 +2,7 @@ import logo from "./logo.svg";
 import AllRoutes from "./AllRoutes";
 import React, { useState } from "react";
 import "./App.css";
+import Sidebar from "./components/Sidebar/Sidebar";
 
 
 function App() {
@@ -11,8 +12,11 @@ function App() {
       {/* <header className="App-header">
         <h1>Study Interests App</h1>
       </header> */}
-      <h1>Doubt Smasher</h1>
+      {/* <div className="header">Doubt Smasher</div> */}
+      <div className="main-container">
         <AllRoutes />
+      </div>
+      <Sidebar />
     </div>
   );
 }
