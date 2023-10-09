@@ -1,0 +1,16 @@
+.sidebar-container{
+    background-color: black;
+    display: flex;
+    padding: 1rem;
+    justify-content: space-evenly;
+}
+.sidebar-item{
+    background-color: var(--dark);
+    color: var(--light-blue-colour);
+    padding: 1rem;
+    border-radius: 10%;
+}
+.sidebar-item.active{
+    background-color: var(--blue-colour);
+    color: var(--grey-colour);
+}

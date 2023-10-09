@@ -1,8 +1,11 @@
 import React, { useEffect, useState } from 'react'
 import { useNavigate } from 'react-router-dom';
 import { getRecommendations, joinRoom } from '../../api/chatroom';
+import { useDispatch } from 'react-redux';
+import { getChatRooms } from '../../actions/chatroom';
 
 function JoinChatroom() {
+    const dispatch = useDispatch()
     const navigate = useNavigate()
     const [recommendations,setRecommendations] = useState([])
     console.log(recommendations)
@@ -11,7 +14,7 @@ function JoinChatroom() {
     const handleClick = (chatroomid) => async() =>{
         try{
             await joinRoom(chatroomid);
-            navigate('/chatroom')
+            dispatch(getChatRooms())
         }catch(err){
             console.log(err)
         }
@@ -26,14 +29,18 @@ function JoinChatroom() {
     },[])
 
   return (
-    <div className='auth-container-2'>
-        {recommendations.map((recommendation)=>
-        <div onClick={handleClick(recommendation._id)}>
-            <b>{recommendation.name}</b>
-            <p>topics</p>{recommendation.topics.map((topic)=><p>{topic.name}</p>)}
-            Users: {recommendation.users.length}
-        </div>
-        )}
+    <div className=''>
+        {recommendations.map((chatroom,idx) => 
+                    <div key={`suggest${idx}`} onClick={handleClick(chatroom._id)} className='ChatroomItem'>
+                        <p>{chatroom.name}</p>
+                        <div className='bottom'>
+                            <p>Users : {chatroom.users.length} </p>
+                            <div className='topics'>
+                                {chatroom.topics.map(topic =><p>{topic.name}</p>)}
+                            </div>
+                        </div>
+                    </div>
+            )}
     </div>
   )
 }

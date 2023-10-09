@@ -47,7 +47,7 @@ function CreateChatroom() {
         
     }
   return (
-    <div className='auth-container-2'>
+    <div className='create-room-container'>
         <form onSubmit={handleSubmit} >
         <label htmlFor='name'>
               <h4>Room Name</h4>
