@@ -5,11 +5,15 @@
     display: flex;
     justify-content: center;
     align-items: center;
+    --dark: hsl(280, 9%,10%);
+background-color: var(--dark);
 }
 
 .auth-container-1{
     padding: 20px;
     margin-right: 30px;
+    --dark: hsl(280, 9%,20%);
+    background-color: var(--dark);
 }
 
 .login-logo{
@@ -22,6 +26,7 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    
 }
 
 .auth-container-2 form{
@@ -35,6 +40,8 @@
     box-shadow: 0 10px 25px rgb(0 0 0 / 5%),
      0 20px 48px rgb(0 0 0 / 5%),
      0 1px 4px rgb(0 0 0 / 10%);
+     --dark: hsl(280, 9%,20%);
+     background-color: var(--dark);
 }
 
 .auth-container-2 form label input{

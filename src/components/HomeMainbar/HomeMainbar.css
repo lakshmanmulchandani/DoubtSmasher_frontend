@@ -11,6 +11,8 @@
     align-items: center;
 }
 
+
+
 .main-bar-header h1{
     font-weight: 400;
 }
@@ -34,7 +36,9 @@
     width: 100%;
     display: flex;
     align-items: center;
-    background-color: #fdf7e2;
+    --dark: hsl(280, 9%, 20%);
+    background-color: var(--dark);
+    	
     border-bottom: solid 1px #edeff0;
 }
 
@@ -89,6 +93,83 @@
     font-size: 13px;
 }
 
+
+/* --light-blue-colour: hsl(209, 100%, 91%); */
+
+.Doubts-header
+{
+    --light-blue-colour: hsl(209, 100%, 91%);
+    color: var(--light-blue-colour);
+    margin-left: 20px;
+    padding-left: 10px;
+}
+
+.doubt-count 
+{
+    --light-blue-colour: hsl(209, 100%, 91%);
+    color: var(--light-blue-colour)
+
+}
+
+.Doubt-Container{
+    --dark: hsl(280, 9%, 20%);
+    background-color: var(--dark);
+    display: flex;
+    flex-direction: column;
+    max-width: 800px;
+    justify-content: center;
+    border-radius: 10px;
+    margin: 20px;
+    padding: 10px;
+}
+
+.Doubt-content{
+    display: flex;
+    flex-direction: row;
+    max-width: 100%;
+    justify-content: space-between;
+}
+
+.Doubt-Question{
+    font-size: 3vh;
+    text-align: left;
+}
+
+.Doubt-tags{
+    font-size: small;
+}
+
+.Doubt-extra-info{
+    display: flex;
+    flex-direction: row;
+    color: green;
+    justify-content: space-evenly;
+    font-size: small;
+}
+.Doubt-divider {
+    width: 100%;
+    height: 1px; /* Adjust the thickness of the line as needed */
+    background-color: black;
+    margin: 10px 0; /* Adjust the margin spacing as needed */
+  }
+  
+  .fixed-button {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    background-color: var(--dark); /* WhatsApp green color */
+    color: white;
+    padding: 15px 25px;
+    border-radius: 50px;
+    text-decoration: none;
+    font-weight: bold;
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+    transition: background-color 0.3s ease-in-out;
+}
+
+.fixed-button:hover {
+    /* background-color: #128c7e; Darker green color on hover */
+}
 
 @media (max-width: 900px) {
     .main-bar {

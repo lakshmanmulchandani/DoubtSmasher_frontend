@@ -1,24 +1,32 @@
 .ask-question{
     min-height: 100vh;
-    background-color: #f1f2f3;
+  
 }
 
 .ask-ques-container{
     margin: auto;
     max-width: 1200px;
+     --dark: hsl(280, 9%,10%);
+    background-color: var(--dark);
 }
 
 .ask-ques-container h1{
     padding: 80px 0px 20px 0px;
+    --light-blue-colour: hsl(209, 100%, 81%);
+    color:var(--light-blue-colour)
 }
 
 .ask-ques-container form .ask-form-container{
     padding: 20px;
-    background-color: white;
+    --dark: hsl(280, 9%,20%);
+    background-color: var(--dark);
+   
     border-radius: 3px;
     box-shadow: 0 10px 25px rgb(0 0 0 / 5%),
      0 20px 48px rgb(0 0 0 / 5%),
      0 1px 4px rgb(0 0 0 / 10%);
+     --light-blue-colour: hsl(209, 100%, 95%);
+     color:var(--light-blue-colour)
 }
 
 .ask-form-container label h4{
