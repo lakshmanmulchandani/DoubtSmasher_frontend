@@ -3,7 +3,7 @@ import authReducer from "./auth";
 import currentUserReducer from "./currentUser";
 import questionsReducer from "./questions";
 import usersReducer from "./users";
-
+import interestReducer from "./interest";
 import chatroomReducer from "./chatroom";
 
 export default combineReducers({
@@ -11,5 +11,6 @@ export default combineReducers({
   currentUserReducer,
   questionsReducer,
   usersReducer,
+  interestReducer,
   chatrooms: chatroomReducer
 });
