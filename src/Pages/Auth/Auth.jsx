@@ -44,6 +44,7 @@ const Auth = () => {
           navigate
         )
       );
+      setIsSignup(false)
     } else {
       dispatch(login({email, password}, navigate));
     }
