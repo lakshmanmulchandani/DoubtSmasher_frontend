@@ -14,6 +14,7 @@
 
 
 .main-bar-header h1{
+    padding: 0;
     font-weight: 400;
 }
 
@@ -104,6 +105,11 @@
     padding-left: 10px;
 }
 
+.Doubts-header h1{
+    padding: 0;
+    margin: 0;
+    font-size: 1rem;
+}
 .doubt-count 
 {
     --light-blue-colour: hsl(209, 100%, 91%);
@@ -131,7 +137,7 @@
 }
 
 .Doubt-Question{
-    font-size: 3vh;
+    font-size: 2vh;
     text-align: left;
 }
 
@@ -155,7 +161,7 @@
   
   .fixed-button {
     position: fixed;
-    bottom: 20px;
+    bottom: 6rem;
     right: 20px;
     background-color: var(--dark); /* WhatsApp green color */
     color: white;

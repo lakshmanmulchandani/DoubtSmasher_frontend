@@ -11,14 +11,11 @@ function App() {
         <h1>Study Interests App</h1>
       </header> */}
 
-      {/* <div className="header">Doubt Smasher</div> */}
+      <div className="header">Doubt Smasher</div>
       <div className="main-container">
         <AllRoutes />
       </div>
       <Sidebar />
-
-      {/* <h1>Doubt Smasher</h1> */}
-      <AllRoutes />
 
     </div>
   );

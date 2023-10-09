@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 
 import AsyncCreatableSelect from 'react-select/async-creatable';
 import { createRoom, getTopics } from '../../api/chatroom';
@@ -9,6 +9,7 @@ function CreateChatroom() {
     const [name, setName] = useState('');
     const [description, setDescription] = useState('');
     const [topics, setTopics] = useState([]);
+    const [initialOptions, setInitialOptions] = useState([])
 
     const handleChange = (selectedOption) => {
       setTopics(selectedOption);
@@ -29,6 +30,19 @@ function CreateChatroom() {
         }
         fetchtopics()
       };
+
+    useEffect(()=>{
+      const fetchtopics = async() =>{
+          const topics = (await getTopics('')).data.topics;
+          const formattedTopics = topics.map((topic,idx) =>({
+              value: topic.name,
+              label:topic.name
+          }))
+          setInitialOptions(formattedTopics)
+      }
+      fetchtopics()
+
+    },[])
 
     const handleSubmit = async(e) =>{
         e.preventDefault();
@@ -73,9 +87,9 @@ function CreateChatroom() {
             </label>
             <label htmlFor='topics'>
               <h4>Topics</h4>
-              <AsyncCreatableSelect cacheOptions isMulti loadOptions={loadOptions} options={topics} onChange={handleChange} defaultOptions={[{value:'dsaa',label:"dsaa"}]} />
+              <AsyncCreatableSelect className='select' cacheOptions isMulti loadOptions={loadOptions} options={topics} onChange={handleChange} defaultOptions={initialOptions} />
             </label>
-            <button type='submit'>Create Room</button>
+            <button className='review-btn' type='submit'>Create Room</button>
         </form>
     </div>
   )

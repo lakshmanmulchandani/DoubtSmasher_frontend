@@ -12,6 +12,7 @@ import ChatroomHome from "./Pages/Chatroom/ChatroomHome";
 import Chatroom from "./Pages/Chatroom/Chatroom";
 import CreateChatroom from "./Pages/Chatroom/CreateChatroom";
 import JoinChatroom from "./Pages/Chatroom/JoinChatroom";
+import Profile from "./Pages/Profile/Profile";
 
 const AllRoutes = () => {
   const [userProfiles, setUserProfiles] = useState([]);
@@ -28,7 +29,7 @@ const AllRoutes = () => {
       <Route path='/AskQuestion' element={<AskQuestion />} />
       <Route path='/Questions' element={<Questions />} />
       <Route path='/Questions/:id' element={<DisplayQuestion />} />
-
+      <Route exact path='/profile' element={<Profile />} />
       <Route exact path="/chatroom/expand" element = {<Chatroom />} />
       <Route exact path="/chatroom/create" element = {<CreateChatroom />} />
       <Route exact path="/chatroom/join" element = {<JoinChatroom />} />

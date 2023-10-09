@@ -1,12 +1,6 @@
-:root{
-    --red-colour: rgb(219, 77, 72);
-      --yellow-colour: hsl(46, 100%, 57%);
-      --light-yellow-colour: hsl(46, 100%, 89%);
-      --dark: hsl(280, 9%, 20%);
-      --black: hsl(280, 9%, 10%);
-      --blue-colour: hsl(210, 77%, 57%);
-      --light-blue-colour: hsl(209, 100%, 91%);
-      --grey-colour: hsl(0, 0%, 93%);
+.container{
+    --dark: hsl(280, 9%,20%);
+    --black: hsl(280, 9%,10%);
 }
 .container *{
     text-align: left;
@@ -48,7 +42,7 @@
 }
 .ChatroomItem > p{
     padding: 0;
-    font-size: 1.4rem;
+    font-size: 1.2rem;
 }
 .ChatroomItem .bottom {
     display: flex;
@@ -166,4 +160,23 @@
     outline: none;
     border: none;
     background-color: var(--dark);
+}
+
+
+.review-btn{
+    margin: 50px 0px;
+    padding: 10px;
+    background-color: #009dff;
+    border: solid 1px #009dff;
+    color: white;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: 0.3s;
+}
+.review-btn:hover{
+    background-color: #0086d8;
+}
+
+.select *{
+    color: var(--dark) !important;
 }
