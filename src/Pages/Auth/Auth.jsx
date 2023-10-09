@@ -57,6 +57,13 @@ const Auth = () => {
             <label htmlFor='name'>
               <h4>Display Name</h4>
               <input
+                style={{
+                  backgroundColor: " hsl(280, 9%,70%)", // Light purple background color for the textarea
+                  color: "#fff", // Text color
+                  border: "1px solid #ccc", // Border color
+                  padding: "10px", // Padding for content inside the textarea
+                  borderRadius: "10px",
+                }}
                 type='text'
                 id='name'
                 name='name'
@@ -69,6 +76,13 @@ const Auth = () => {
           <label htmlFor='email'>
             <h4>Email</h4>
             <input
+              style={{
+                backgroundColor: " hsl(280, 9%,70%)", // Light purple background color for the textarea
+                color: "#fff", // Text color
+                border: "1px solid #ccc", // Border color
+                padding: "10px", // Padding for content inside the textarea
+                borderRadius: "10px",
+              }}
               type='email'
               name='email'
               id='email'
@@ -91,6 +105,13 @@ const Auth = () => {
               )}
             </div>
             <input
+              style={{
+                backgroundColor: " hsl(280, 9%,70%)", // Light purple background color for the textarea
+                color: "#fff", // Text color
+                border: "1px solid #ccc", // Border color
+                padding: "10px", // Padding for content inside the textarea
+                borderRadius: "10px",
+              }}
               type='password'
               name='password'
               id='password'
@@ -112,6 +133,13 @@ const Auth = () => {
               {/* Updated to "rollno" */}
               <h4>Roll Number</h4>
               <input
+                style={{
+                  backgroundColor: " hsl(280, 9%,70%)", // Light purple background color for the textarea
+                  color: "#fff", // Text color
+                  border: "1px solid #ccc", // Border color
+                  padding: "10px", // Padding for content inside the textarea
+                  borderRadius: "10px",
+                }}
                 type='text'
                 id='rollno'
                 name='rollno'
@@ -127,6 +155,13 @@ const Auth = () => {
               {/* Updated to "passoutyear" */}
               <h4>Passout Year</h4>
               <input
+                style={{
+                  backgroundColor: " hsl(280, 9%,70%)", // Light purple background color for the textarea
+                  color: "#fff", // Text color
+                  border: "1px solid #ccc", // Border color
+                  padding: "10px", // Padding for content inside the textarea
+                  borderRadius: "10px",
+                }}
                 type='text'
                 id='passoutyear'
                 name='passoutyear'
