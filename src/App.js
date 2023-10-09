@@ -1,6 +1,5 @@
-import logo from "./logo.svg";
 import AllRoutes from "./AllRoutes";
-import React, {useState} from "react";
+import React from "react";
 import "./App.css";
 import Sidebar from "./components/Sidebar/Sidebar";
 

@@ -173,9 +173,6 @@
     transition: background-color 0.3s ease-in-out;
 }
 
-.fixed-button:hover {
-    /* background-color: #128c7e; Darker green color on hover */
-}
 
 @media (max-width: 900px) {
     .main-bar {

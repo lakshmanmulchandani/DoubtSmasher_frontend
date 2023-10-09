@@ -15,7 +15,7 @@ function Chatroom() {
   const [socket, setSocket] = useState(null);
   const [messageInput, setMessageInput] = useState("");
   useEffect(() => {
-    const newSocket = io("http://localhost:5000");
+    const newSocket = io("https://doubt-smasher.onrender.com/");
 
     setSocket(newSocket);
 

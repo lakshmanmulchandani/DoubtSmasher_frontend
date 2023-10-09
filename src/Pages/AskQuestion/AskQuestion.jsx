@@ -31,11 +31,6 @@ const AskQuestion = () => {
     );
   };
 
-  const handleEnter = (e) => {
-    if (e.key === "Enter") {
-      setQuestionBody(questionBody + "\n");
-    }
-  };
   return (
     <div className='ask-question'>
       <div className='ask-ques-container'>
