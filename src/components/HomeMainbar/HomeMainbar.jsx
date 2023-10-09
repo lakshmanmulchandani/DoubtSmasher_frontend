@@ -1,11 +1,10 @@
 import React from "react";
-import {useLocation, useNavigate} from "react-router-dom";
+import { useNavigate} from "react-router-dom";
 import {useSelector} from "react-redux";
 import "./HomeMainbar.css";
 import QuestionList from "./QuestionList";
 
 const HomeMainbar = () => {
-  const location = useLocation();
   const user = 1;
   const navigate = useNavigate();
 
