@@ -10,7 +10,7 @@ import "./Questions.css";
 import Avatar from "../../components/Avatar/Avatar";
 import DisplayAnswer from "./DisplayAnswer";
 import {postAnswer, deleteQuestion, voteQuestion} from "../../actions/question";
-
+import {fetchAllQuestions} from "../../actions/question";
 const QuestionsDetails = () => {
   const {id} = useParams();
   var questionsList = useSelector((state) => state.questionsReducer);
@@ -22,6 +22,8 @@ const QuestionsDetails = () => {
   const User = useSelector((state) => state.currentUserReducer);
   const location = useLocation();
   const url = "http://localhost:3000";
+
+  dispatch(fetchAllQuestions());
 
   const handlePostAns = (e, answerLength) => {
     e.preventDefault();
