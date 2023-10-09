@@ -21,8 +21,7 @@ export const postAnswer = (id, noOfAnswers, answerBody, userAnswered) =>
   API.patch(`/answer/post/${id}`, {noOfAnswers, answerBody, userAnswered});
 export const deleteAnswer = (id, answerId, noOfAnswers) =>
   API.patch(`/answer/delete/${id}`, {answerId, noOfAnswers});
+  export const postInterest = (interests , lookingToConnect, location) =>
+    API.post(`/interest`, {interests , lookingToConnect, location});
 
 export const check = () => API.get("/");
-
-
-

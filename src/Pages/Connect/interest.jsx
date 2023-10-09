@@ -1,15 +1,23 @@
 import React, { useState } from "react";
-
+import {useDispatch, useSelector} from "react-redux";
+import postInterest from "../../actions/interest";
 const ProfileForm = ({ onSubmit }) => {
   const [interests, setInterests] = useState([]);
   const [lookingToConnect, setLookingToConnect] = useState(false);
   const [location, setLocation] = useState("within-campus");
 
+ const dispatch = useDispatch();
+
   const handleInterestChange = (e) => {
     const value = e.target.value;
-    if (!interests.includes(value)) {
-      setInterests([...interests, value]);
-    }
+    console.log(e);
+    // Split the input value by spaces
+    const interestArray = value.split(" ");
+
+    // Filter out empty values and store only interests separated by space
+    const validInterests = interestArray.filter((interest) => interest !== "");
+
+    setInterests(validInterests);
   };
 
   const handleInterestRemove = (value) => {
@@ -17,8 +25,11 @@ const ProfileForm = ({ onSubmit }) => {
   };
 
   const handleSubmit = (e) => {
-    e.preventDefault();
-    onSubmit({ interests, lookingToConnect, location });
+     e.preventDefault();
+    console.log("hel");
+    dispatch(
+     postInterest({ interests, lookingToConnect, location })
+      )
   };
 
   return (
@@ -54,8 +65,11 @@ const ProfileForm = ({ onSubmit }) => {
             value={location}
             onChange={(e) => setLocation(e.target.value)}
           >
-            <option value="within-campus">Within Campus</option>
-            <option value="outside">Outside</option>
+            <option value="within-campus">Online</option>
+            <option value="outside">Amul Parlor</option>
+            <option value="within-campus">Library</option>
+            <option value="outside">CDC</option>
+            <option value="outside">Hostel</option>
           </select>
         </div>
         <button type="submit">Submit</button>
