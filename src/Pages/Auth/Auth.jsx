@@ -41,10 +41,11 @@ const Auth = () => {
             rollno, // Updated to "rollno"
             passoutyear, // Updated to "passoutyear"
           },
-          navigate
+          () =>{
+            setIsSignup(false)
+          }
         )
       );
-      setIsSignup(false)
     } else {
       dispatch(login({email, password}, navigate));
     }
