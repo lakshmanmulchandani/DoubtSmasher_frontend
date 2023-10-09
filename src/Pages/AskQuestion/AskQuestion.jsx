@@ -13,7 +13,7 @@ const AskQuestion = () => {
   const dispatch = useDispatch();
   const User = useSelector((state) => state.currentUserReducer);
   const navigate = useNavigate();
-  console.log(User);
+
   const handleSubmit = (e) => {
     e.preventDefault();
 
@@ -55,6 +55,13 @@ const AskQuestion = () => {
                   setQuestionTitle(e.target.value);
                 }}
                 placeholder='e.g. Is there an R function for finding the index of an element in a vector?'
+                style={{
+                  backgroundColor: " hsl(280, 9%,70%)", // Light purple background color for the textarea
+                  color: "#fff", // Text color
+                  border: "1px solid #ccc", // Border color
+                  padding: "10px", // Padding for content inside the textarea
+                  borderRadius: "10px",
+                }}
               />
             </label>
             <label htmlFor='ask-ques-body'>
@@ -63,15 +70,23 @@ const AskQuestion = () => {
                 Include all the information someone would need to answer your
                 question
               </p>
+
               <textarea
                 name=''
-                id='ask-ques-body'
+                id=''
+                cols='30'
+                rows='10'
+                placeholder='Describe your doubt to your friends by writing here'
                 onChange={(e) => {
                   setQuestionBody(e.target.value);
                 }}
-                cols='30'
-                rows='10'
-                onKeyPress={handleEnter}></textarea>
+                style={{
+                  backgroundColor: " hsl(280, 9%,70%)", // Light purple background color for the textarea
+                  color: "#fff", // Text color
+                  border: "1px solid #ccc", // Border color
+                  padding: "10px", // Padding for content inside the textarea
+                  borderRadius: "10px",
+                }}></textarea>
             </label>
             <label htmlFor='ask-ques-tags'>
               <h4>Tags</h4>
@@ -83,6 +98,13 @@ const AskQuestion = () => {
                   setQuestionTags(e.target.value.split(" "));
                 }}
                 placeholder='e.g. (xml typescript wordpress)'
+                style={{
+                  backgroundColor: " hsl(280, 9%,70%)", // Light purple background color for the textarea
+                  color: "#fff", // Text color
+                  border: "1px solid #ccc", // Border color
+                  padding: "10px", // Padding for content inside the textarea
+                  borderRadius: "10px",
+                }}
               />
             </label>
           </div>

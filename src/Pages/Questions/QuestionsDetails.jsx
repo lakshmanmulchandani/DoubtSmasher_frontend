@@ -10,90 +10,20 @@ import "./Questions.css";
 import Avatar from "../../components/Avatar/Avatar";
 import DisplayAnswer from "./DisplayAnswer";
 import {postAnswer, deleteQuestion, voteQuestion} from "../../actions/question";
-
+import {fetchAllQuestions} from "../../actions/question";
 const QuestionsDetails = () => {
   const {id} = useParams();
   var questionsList = useSelector((state) => state.questionsReducer);
   questionsList = questionsList.data;
-  console.log(questionsList);
 
-  // var questionsList = [
-  //   {
-  //     _id: "1",
-  //     upVotes: 3,
-  //     downVotes: 2,
-  //     noOfAnswers: 2,
-  //     questionTitle: "What is a function?",
-  //     questionBody: "It meant to be",
-  //     questionTags: ["java", "node js", "react js", "mongo db", "express js"],
-  //     userPosted: "mano",
-  //     userId: 1,
-  //     askedOn: "jan 1",
-  //     answer: [
-  //       {
-  //         answerBody: "Answer",
-  //         userAnswered: "kumar",
-  //         answeredOn: "jan 2",
-  //         userId: 2,
-  //       },
-  //     ],
-  //   },
-  //   {
-  //     _id: "63839cf8b9dd97124b0a76b0",
-  //     questionTitle: "How are you bro",
-  //     questionBody: "HEHHE",
-  //     questionTags: ["FFF", "FFF", "SSS"],
-  //     noOfAnswers: 0,
-  //     upVotes: 2,
-  //     downVotes: 1,
-  //     userPosted: "Lakshman Mulchandani",
-  //     userId: "63839cdeb9dd97124b0a76ae",
-  //     askedOn: "2022-11-27T17:23:04.098Z",
-  //     answer: [],
-  //     __v: 0,
-  //   },
-  //   ,
-  //   {
-  //     _id: "63839cf8b9dd97124b0a76b0",
-  //     questionTitle: "How are you bro",
-  //     questionBody: "HEHHE",
-  //     questionTags: ["FFF", "FFF", "SSS"],
-  //     noOfAnswers: 0,
-  //     upVotes: 2,
-  //     downVotes: 1,
-  //     userPosted: "Lakshman Mulchandani",
-  //     userId: "63839cdeb9dd97124b0a76ae",
-  //     askedOn: "Jan 1",
-  //     answer: [],
-  //     __v: {$numberInt: "0"},
-  //   },
-  //   {
-  //     _id: "3",
-  //     upVotes: 3,
-  //     downVotes: 2,
-  //     noOfAnswers: 0,
-  //     questionTitle: "What is a function?",
-  //     questionBody: "It meant to be",
-  //     questionTags: ["javascript", "R", "python"],
-  //     userPosted: "mano",
-  //     askedOn: "jan 1",
-  //     userId: 1,
-  //     answer: [
-  //       {
-  //         answerBody: "Answer",
-  //         userAnswered: "kumar",
-  //         answeredOn: "jan 2",
-  //         userId: 2,
-  //       },
-  //     ],
-  //   },
-  // ];
   const [Answer, setAnswer] = useState("");
   const Navigate = useNavigate();
   const dispatch = useDispatch();
   const User = useSelector((state) => state.currentUserReducer);
   const location = useLocation();
   const url = "http://localhost:3000";
+
+  dispatch(fetchAllQuestions());
 
   const handlePostAns = (e, answerLength) => {
     e.preventDefault();
@@ -145,7 +75,9 @@ const QuestionsDetails = () => {
             .map((question) => (
               <div key={question._id}>
                 <section className='question-details-container'>
-                  <h1>{question.questionTitle}</h1>
+                  <div className='question-title'>
+                    {question.questionTitle}{" "}
+                  </div>
                   <div className='question-details-container-2'>
                     <div className='question-votes'>
                       <img
@@ -203,7 +135,7 @@ const QuestionsDetails = () => {
                   </div>
                 </section>
                 {question.noOfAnswers !== 0 && (
-                  <section>
+                  <section className='submitted-ans'>
                     <h3>{question.noOfAnswers} Answers</h3>
                     <DisplayAnswer
                       key={question._id}
@@ -223,14 +155,29 @@ const QuestionsDetails = () => {
                       id=''
                       cols='30'
                       rows='10'
-                      onChange={(e) => setAnswer(e.target.value)}></textarea>
+                      placeholder='Help your friend by writing here'
+                      onChange={(e) => setAnswer(e.target.value)}
+                      style={{
+                        backgroundColor: " hsl(280, 9%,70%)", // Light purple background color for the textarea
+                        color: "#fff", // Text color
+                        border: "1px solid #ccc", // Border color
+                        padding: "10px", // Padding for content inside the textarea
+                        borderRadius: "10px",
+                      }}></textarea>
                     <br />
                     <input
                       type='Submit'
                       className='post-ans-btn'
                       value='Post Your Answer'
+                      style={{
+                        backgroundColor: "#f2e8fd", // Light purple background color for the input
+                        color: "#333", // Text color
+                        border: "1px solid #ccc", // Border color
+                        padding: "10px", // Padding for content inside the input
+                      }}
                     />
                   </form>
+
                   <p>
                     Browse other Question tagged
                     {question.questionTags.map((tag) => (

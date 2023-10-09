@@ -23,25 +23,23 @@ const HomeMainbar = () => {
   return (
     <div className='main-bar'>
       <div className='main-bar-header'>
-        {location.pathname === "/" ? (
-          <h1>Top Questions</h1>
-        ) : (
-          <h1>All Questions</h1>
-        )}
-        <button onClick={checkAuth} className='ask-btn'>
-          Ask Question
-        </button>
+        <div className='Doubts-header'>
+          <h1>Recent Doubts</h1>
+        </div>
       </div>
-      <div>
+      <div className='doubt-count'>
         {questionsList.data === null ? (
           <h1>Loading...</h1>
         ) : (
           <>
-            <p>{questionsList.data.length} questions</p>
             <QuestionList questionsList={questionsList.data} />
           </>
         )}
       </div>
+
+      <button onClick={checkAuth} className='fixed-button'>
+        <i class='fas fa-comment'></i> Ask Question
+      </button>
     </div>
   );
 };
